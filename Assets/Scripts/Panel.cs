@@ -13,6 +13,9 @@ public class Panel : Controller
     [SerializeField]
     private bool _openBuyDefault;
 
+    protected virtual void OnOpen() { }
+    protected virtual void OnClose() { }
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,12 +32,14 @@ public class Panel : Controller
         if (instant)
         {
             _canvas.alpha = 1;
+            OnOpen();
         }
         else
         {
             _canvas.DOFade(1, 0.3f).OnComplete( () => 
             {
                 callback?.Invoke();
+                OnOpen();
             });
         }
     }
@@ -47,6 +52,7 @@ public class Panel : Controller
         {
             _canvas.alpha = 0;
             gameObject.SetActive(false);
+            OnClose();
         }
         else
         {
@@ -54,6 +60,7 @@ public class Panel : Controller
             {
                 callback?.Invoke();
                 gameObject.SetActive(false);
+                OnClose();
             });
         }
     }

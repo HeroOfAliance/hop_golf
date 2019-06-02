@@ -4,8 +4,29 @@ using UnityEngine;
 
 public class GameController : Controller
 {
+
+    public int lastPassedLevel
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("lastPassedLevel", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("lastPassedLevel", value);
+            PlayerPrefs.Save();
+        }
+    }
+
     private int _level;
-    public void StartLevel(int level)
+
+    private void Start()
+    {
+        StartLevel(lastPassedLevel + 1, true);
+        PlayerController.active = true;
+    }
+
+    public void StartLevel(int level, bool soft)
     {
         _level = level;
 
@@ -14,12 +35,13 @@ public class GameController : Controller
         {
             var levelData = JsonUtility.FromJson<LevelData>(levelAsset.text);
             levelData.Num = level;
-            field.Open(levelData, null);
+            field.Open(levelData, null, soft);
         }
     }
 
     public void NextLevel()
     {
-        StartLevel(_level + 1);
+        lastPassedLevel = _level;
+        StartLevel(_level + 1, false);
     }
 }

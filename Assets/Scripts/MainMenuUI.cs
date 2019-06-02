@@ -6,7 +6,7 @@ public class MainMenuUI : Panel
 {
     public void OnPlay()
     {
-        gameController.StartLevel(1);
+        gameController.StartLevel(1, true);
         Close(() => 
         {
             panelsManager.Get<GameplayUI>().Open(null, false);

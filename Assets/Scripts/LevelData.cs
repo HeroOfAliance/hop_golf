@@ -46,7 +46,8 @@ public class LevelData
                 level.Units.Add(new FiledUnit
                 {
                     IsStart = false,
-                    Type = x == 0 || x == size.x - 1 || y == 0 || y == size.y - 1 ? FieldBlockType.Void : FieldBlockType.Empty,
+                    //Type = x == 0 || x == size.x - 1 || y == 0 || y == size.y - 1 ? FieldBlockType.Void : FieldBlockType.Empty,
+                    Type = FieldBlockType.Empty,
                     X = x,
                     Y = y
                 });

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class GameOverUI : Panel
 {
+
+    protected override void OnOpen()
+    {
+        PlayerController.active = false;
+    }
+
     public void OnNextLevel()
     {
         Close(() =>
         {
-            gameController.NextLevel();
             panelsManager.Get<GameplayUI>().Open(null, false);
         }, false);
-        
+        PlayerController.active = true;   
     }
 }

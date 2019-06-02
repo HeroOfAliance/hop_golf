@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,15 @@ public class FieldBlock : MonoBehaviour
     private GameObject _player;
     [SerializeField]
     private GameObject _empty;
+
+
+    [SerializeField]
+    private MeshRenderer _obstacle;
+    [SerializeField]
+    private MeshRenderer _ground;
+    [SerializeField]
+    private MeshRenderer _hole;
+
 
     public LevelData.FiledUnit unit { get; private set; }
     public FieldBlockType type { get; private set; }
@@ -67,4 +77,10 @@ public class FieldBlock : MonoBehaviour
         _player.SetActive(startNode);
     }
 
+    internal void SetColors(ColorCode.ColorPair codes)
+    {
+        _obstacle.material.color = codes.obstacles;
+        _hole.material.color = codes.ground;
+        _ground.material.color = codes.ground;
+    }
 }

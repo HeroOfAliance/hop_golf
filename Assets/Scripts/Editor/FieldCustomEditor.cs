@@ -37,6 +37,7 @@ public class FieldCustomEditor : Editor
             if (GUILayout.Button("Open Editor"))
             {
                 _editor = true;
+                field.SetEditMode(true);
             }
 
             return;
@@ -46,6 +47,7 @@ public class FieldCustomEditor : Editor
         {
             _editor = false;
             _isLevelOpen = false;
+            field.SetEditMode(false);
         }
 
 
@@ -186,6 +188,7 @@ public class FieldCustomEditor : Editor
                             field.Restart();
                             break;
                     }
+                    break;
                 }
             }
         }

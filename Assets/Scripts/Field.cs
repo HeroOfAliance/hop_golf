@@ -23,6 +23,12 @@ public class Field : Controller
 
     private Tween _closeTween;
     private Tween _openTween;
+
+    [SerializeField]
+    private Camera _gameCamera;
+    [SerializeField]
+    private Camera _editorCamera;
+
     private void Start()
     {
         _fieldBlock.gameObject.SetActive(false);
@@ -61,6 +67,8 @@ public class Field : Controller
 
             FieldBlock start = null;
 
+            var codes = ColorCode.instance.GetColors(level.Num);
+
             foreach (var item in level.Units)
             {
                 var block = Instantiate(_fieldBlock);
@@ -70,7 +78,7 @@ public class Field : Controller
                 block.gameObject.SetActive(true);
                 block.SetUnit(item);
                 block.SetType(item.Type);
-
+                block.SetColors(codes);
                 if (item.IsStart)
                 {
                     start = block;
@@ -142,6 +150,9 @@ public class Field : Controller
     public void SetEditMode(bool active)
     {
         _editMode = active;
+        _editorCamera.gameObject.SetActive(active);
+        _gameCamera.gameObject.SetActive(!active);
+
     }
 
     public Vector3 GetPosition(int x, int y) => new Vector3(_nodeSize * x, 0, _nodeSize * y) + offset;
