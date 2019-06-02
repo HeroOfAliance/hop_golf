@@ -42,4 +42,28 @@ MonoBehaviour:
       rgba: 4281815790
     _obstacles:
       serializedVersion: 2
-      rgba: 4286971712
+      rgba: 4282437631
+  - _ground:
+      serializedVersion: 2
+      rgba: 4281822190
+    _obstacles:
+      serializedVersion: 2
+      rgba: 4286136575
+  - _ground:
+      serializedVersion: 2
+      rgba: 4284870199
+    _obstacles:
+      serializedVersion: 2
+      rgba: 4282434303
+  - _ground:
+      serializedVersion: 2
+      rgba: 4293801855
+    _obstacles:
+      serializedVersion: 2
+      rgba: 4294466797
+  - _ground:
+      serializedVersion: 2
+      rgba: 4293827639
+    _obstacles:
+      serializedVersion: 2
+      rgba: 4283613173
