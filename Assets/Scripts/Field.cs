@@ -29,6 +29,49 @@ public class Field : Controller
     [SerializeField]
     private Camera _editorCamera;
 
+    private void UpdateCameraPosition(LevelData level, bool soft)
+    {
+        var cam = _editMode ? _editorCamera : _gameCamera;
+
+        //var camBasePos = _editMode ? new Vector3(0, 12.13f, 0) : new Vector3(0, 12.13f, -6);
+        var size = Mathf.Max(level.Size.x, level.Size.y);
+
+        var offset = new Vector3(0,30,-20);
+
+        switch (size)
+        {
+            case 3:
+                offset = new Vector3(0,8,-5);
+                break;
+            case 5:
+                offset = new Vector3(0, 12, -6);
+                break;
+            case 7:
+                offset = new Vector3(0, 17, -10);
+                break;
+            case 9:
+                offset = new Vector3(0, 22, -12);
+                break;
+            case 11:
+                offset = new Vector3(0, 27, -15);
+                break;
+        }
+
+        if (_editMode)
+        {
+            offset.z = 0;
+        }
+
+        if (soft)
+        {
+            cam.transform.position = offset;
+        }
+        else
+        {
+            cam.transform.DOMove(offset, 0.3f);
+        }
+    }
+
     private void Start()
     {
         _fieldBlock.gameObject.SetActive(false);
@@ -54,6 +97,9 @@ public class Field : Controller
             _openTween.Kill();
             _openTween = null;
         }
+
+        UpdateCameraPosition(level, soft);
+
         panelsManager.Get<GameplayUI>().UpdateLevelNum(level.Num);
 
         Close( ()=> 
@@ -152,6 +198,10 @@ public class Field : Controller
         _editMode = active;
         _editorCamera.gameObject.SetActive(active);
         _gameCamera.gameObject.SetActive(!active);
+        if (levelData != null)
+        {
+            UpdateCameraPosition(levelData, true);
+        }
 
     }
 
