@@ -4,7 +4,31 @@ using UnityEngine;
 
 public class GameOverUI : Panel
 {
+    public void SwitchSound()
+    {
 
+    }
+
+    public void RemoveAds()
+    {
+
+    }
+
+    public void RestorePurchases()
+    {
+
+    }
+
+    public void Leaderboards()
+    {
+
+    }
+
+    public void Skins()
+    {
+
+    }
+    
     protected override void OnOpen()
     {
         PlayerController.active = false;
