@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class BottomPanelUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ShowLeadrboard()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Social.ShowLeaderboardUI();
     }
 }
