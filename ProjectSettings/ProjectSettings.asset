@@ -153,8 +153,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: zone.elven.twirl
+    Android: zone.elven.hopgolf
     Standalone: com.Company.ProductName
+    iOS: zone.elven.hopgolf
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16

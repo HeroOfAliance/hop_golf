@@ -15,31 +15,22 @@ MonoBehaviour:
   _colors:
   - _uiColor:
       serializedVersion: 2
-      rgba: 4291054560
+      rgba: 4291143481
     _ground:
       serializedVersion: 2
-      rgba: 4292631034
+      rgba: 4291143481
     _obstacles:
       serializedVersion: 2
-      rgba: 4282420479
+      rgba: 4283033509
   - _uiColor:
       serializedVersion: 2
-      rgba: 4293238600
+      rgba: 4282804474
     _ground:
       serializedVersion: 2
-      rgba: 4294619737
+      rgba: 4282936058
     _obstacles:
       serializedVersion: 2
-      rgba: 4288413504
-  - _uiColor:
-      serializedVersion: 2
-      rgba: 4282877159
-    _ground:
-      serializedVersion: 2
-      rgba: 4284070650
-    _obstacles:
-      serializedVersion: 2
-      rgba: 4282420479
+      rgba: 4280929786
   - _uiColor:
       serializedVersion: 2
       rgba: 4294613337
@@ -51,31 +42,22 @@ MonoBehaviour:
       rgba: 4294965056
   - _uiColor:
       serializedVersion: 2
-      rgba: 4282737151
+      rgba: 4285022690
     _ground:
       serializedVersion: 2
-      rgba: 4281815790
+      rgba: 4285022690
     _obstacles:
       serializedVersion: 2
-      rgba: 4282437631
+      rgba: 4281777139
   - _uiColor:
       serializedVersion: 2
-      rgba: 4278230015
+      rgba: 4283489127
     _ground:
       serializedVersion: 2
-      rgba: 4278628585
+      rgba: 4284793665
     _obstacles:
       serializedVersion: 2
-      rgba: 4286136575
-  - _uiColor:
-      serializedVersion: 2
-      rgba: 4283225119
-    _ground:
-      serializedVersion: 2
-      rgba: 4284870199
-    _obstacles:
-      serializedVersion: 2
-      rgba: 4282434303
+      rgba: 4281252346
   - _uiColor:
       serializedVersion: 2
       rgba: 4293801855
@@ -87,10 +69,10 @@ MonoBehaviour:
       rgba: 4294466797
   - _uiColor:
       serializedVersion: 2
-      rgba: 4293827639
+      rgba: 4293822775
     _ground:
       serializedVersion: 2
-      rgba: 4293827639
+      rgba: 4293822775
     _obstacles:
       serializedVersion: 2
-      rgba: 4283613173
+      rgba: 4283617525

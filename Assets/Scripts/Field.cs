@@ -100,10 +100,12 @@ public class Field : Controller
 
         UpdateCameraPosition(level, soft);
 
-        panelsManager.Get<GameplayUI>().UpdateLevelNum(level.Num);
-
         Close( ()=> 
         {
+            panelsManager.Get<GameplayUI>().UpdateLevelNum(level.Num);
+            var codes = ColorCode.instance.GetColors(level.Num);
+            uiColors.UpdateColors(codes.uiColor);
+
             if (!soft)
             {
                 _fieldRoot.localPosition = Vector3.up * -30f;
@@ -112,10 +114,6 @@ public class Field : Controller
             levelData = level;
 
             FieldBlock start = null;
-
-            var codes = ColorCode.instance.GetColors(level.Num);
-
-            uiColors.UpdateColors(codes.uiColor);
 
             foreach (var item in level.Units)
             {
@@ -182,7 +180,7 @@ public class Field : Controller
 
             if (!soft)
             {
-                _closeTween = _fieldRoot.DOLocalMoveY(10, 0.3f).SetEase(Ease.InBack).OnComplete(()=> onComplete() );
+                _closeTween = _fieldRoot.DOLocalMoveY(30, 0.5f).SetEase(Ease.InBack).OnComplete(()=> onComplete() );
             }
             else
             {

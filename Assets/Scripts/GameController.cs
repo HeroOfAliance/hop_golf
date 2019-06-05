@@ -31,6 +31,7 @@ public class GameController : Controller
     {
         StartLevel(lastPassedLevel + 1, true);
         PlayerController.active = true;
+        Social.localUser.Authenticate((result) => { });
     }
 
     public void StartLevel(int level, bool soft)
@@ -52,6 +53,10 @@ public class GameController : Controller
 
     public void NextLevel()
     {
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportScore(_level, "Progress", (onsuccess) => { });
+        }
         lastPassedLevel = _level;
         StartLevel(_level + 1, false);
     }

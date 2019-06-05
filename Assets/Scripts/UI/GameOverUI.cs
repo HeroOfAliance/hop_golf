@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class GameOverUI : Panel
 {
-    [SerializeField]
-    private Text _level;
 
     [SerializeField]
     private ParticleSystem _confetti;
+    [SerializeField]
+    private Image _header;
+    [SerializeField]
+    private Image _headerShade;
 
     public void UpdateLevelNum(int level)
     {
-        _level.text = $"LEVEL {level}";
+        var color = ColorCode.instance.GetColors(level + 1);
+        _header.color = color.uiColor;
+        _headerShade.color = new Color(color.uiColor.r, color.uiColor.g, color.uiColor.b, 0.25f);
     }
 
     public void SwitchSound()

@@ -56,6 +56,16 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private static Routiner _routiner;
+    public static Routiner routiner
+    {
+        get
+        {
+            if (!_routiner) { _routiner = GetController<Routiner>(); }
+            return _routiner;
+        }
+    }
+
     public static T GetController<T>() where T : Controller
     {
         if (!_controllers.ContainsKey(typeof(T)))

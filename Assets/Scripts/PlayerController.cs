@@ -61,7 +61,7 @@ public class PlayerController : Controller
         if (Input.GetMouseButton(0))
         {
             var delta = Input.mousePosition - _swipeStart;
-            if (delta.magnitude > Screen.width / 5f)
+            if (Mathf.Abs(delta.x) > Screen.width / 10f || Mathf.Abs(delta.y) > Screen.width / 10f)
             {
                 _swipeStart = Input.mousePosition;
                 if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
@@ -271,13 +271,29 @@ public class PlayerController : Controller
 
     private void OnWin()
     {
-        panelsManager.Get<GameplayUI>().Close(() => 
+        var gameplayUi = panelsManager.Get<GameplayUI>();
+        gameController.NextLevel();
+        routiner.CallLater(gameplayUi.LaunchConfetti,0.2f);
+
+        gameplayUi.Close(() => 
         {
-            var gameOver = panelsManager.Get<GameOverUI>();
-            gameOver.Open(null, false);
+            //var gameOver = panelsManager.Get<GameOverUI>();
+            //gameOver.Open(null, false);
             //gameOver.UpdateLevelNum(gameController.lastPassedLevel);
-            gameController.NextLevel();
+
+
+
+            //routiner.CallOnNextFrame( ()=> 
+            //{
+               
+            //});
+
+            routiner.CallLater(() => 
+            {
+                gameplayUi.Open(null, false);
+            }, 0.2f);
+
         }, false);
-        
     }
+
 }
