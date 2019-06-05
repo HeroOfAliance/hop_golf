@@ -273,7 +273,9 @@ public class PlayerController : Controller
     {
         panelsManager.Get<GameplayUI>().Close(() => 
         {
-            panelsManager.Get<GameOverUI>().Open(null, false);
+            var gameOver = panelsManager.Get<GameOverUI>();
+            gameOver.Open(null, false);
+            //gameOver.UpdateLevelNum(gameController.lastPassedLevel);
             gameController.NextLevel();
         }, false);
         

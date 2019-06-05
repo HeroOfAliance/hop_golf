@@ -9,12 +9,15 @@ public class ColorCode : ScriptableObject
     public class ColorPair
     {
         [SerializeField]
+        private Color32 _uiColor;
+        [SerializeField]
         private Color32 _ground;
         [SerializeField]
         private Color32 _obstacles;
 
         public Color32 ground => _ground;
         public Color32 obstacles => _obstacles;
+        public Color32 uiColor => _uiColor;
     }
 
 

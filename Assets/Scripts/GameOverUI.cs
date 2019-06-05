@@ -1,9 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUI : Panel
 {
+    [SerializeField]
+    private Text _level;
+
+    [SerializeField]
+    private ParticleSystem _confetti;
+
+    public void UpdateLevelNum(int level)
+    {
+        _level.text = $"LEVEL {level}";
+    }
+
     public void SwitchSound()
     {
 
@@ -31,8 +43,11 @@ public class GameOverUI : Panel
     
     protected override void OnOpen()
     {
-        PlayerController.active = false;
+        //PlayerController.active = false;
+        _confetti.Play(true);
+        Invoke("OnNextLevel", 1);
     }
+
 
     public void OnNextLevel()
     {
@@ -40,6 +55,6 @@ public class GameOverUI : Panel
         {
             panelsManager.Get<GameplayUI>().Open(null, false);
         }, false);
-        PlayerController.active = true;   
+        //PlayerController.active = true;   
     }
 }

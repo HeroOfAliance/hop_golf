@@ -46,6 +46,16 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private static ColorizedUnits _uiColors;
+    public static ColorizedUnits uiColors
+    {
+        get
+        {
+            if (!_uiColors) { _uiColors = GetController<ColorizedUnits>(); }
+            return _uiColors;
+        }
+    }
+
     public static T GetController<T>() where T : Controller
     {
         if (!_controllers.ContainsKey(typeof(T)))

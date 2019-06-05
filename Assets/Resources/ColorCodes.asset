@@ -13,55 +13,82 @@ MonoBehaviour:
   m_Name: ColorCodes
   m_EditorClassIdentifier: 
   _colors:
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4291054560
+    _ground:
       serializedVersion: 2
       rgba: 4292631034
     _obstacles:
       serializedVersion: 2
       rgba: 4282420479
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4293238600
+    _ground:
       serializedVersion: 2
       rgba: 4294619737
     _obstacles:
       serializedVersion: 2
       rgba: 4288413504
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4282877159
+    _ground:
       serializedVersion: 2
       rgba: 4284070650
     _obstacles:
       serializedVersion: 2
       rgba: 4282420479
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4294613337
+    _ground:
       serializedVersion: 2
       rgba: 4294613337
     _obstacles:
       serializedVersion: 2
       rgba: 4294965056
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4282737151
+    _ground:
       serializedVersion: 2
       rgba: 4281815790
     _obstacles:
       serializedVersion: 2
       rgba: 4282437631
-  - _ground:
+  - _uiColor:
       serializedVersion: 2
-      rgba: 4281822190
+      rgba: 4278230015
+    _ground:
+      serializedVersion: 2
+      rgba: 4278628585
     _obstacles:
       serializedVersion: 2
       rgba: 4286136575
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4283225119
+    _ground:
       serializedVersion: 2
       rgba: 4284870199
     _obstacles:
       serializedVersion: 2
       rgba: 4282434303
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4293801855
+    _ground:
       serializedVersion: 2
       rgba: 4293801855
     _obstacles:
       serializedVersion: 2
       rgba: 4294466797
-  - _ground:
+  - _uiColor:
+      serializedVersion: 2
+      rgba: 4293827639
+    _ground:
       serializedVersion: 2
       rgba: 4293827639
     _obstacles:

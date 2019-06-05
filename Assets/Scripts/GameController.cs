@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,12 @@ public class GameController : Controller
             PlayerPrefs.SetInt("lastPassedLevel", value);
             PlayerPrefs.Save();
         }
+    }
+
+    internal void ResetAll()
+    {
+        lastPassedLevel = 0;
+        Start();
     }
 
     private int _level;
@@ -36,6 +43,10 @@ public class GameController : Controller
             var levelData = JsonUtility.FromJson<LevelData>(levelAsset.text);
             levelData.Num = level;
             field.Open(levelData, null, soft);
+        }
+        else
+        {
+            panelsManager.Get<NoMoreLevelsUI>().Open(null, false);
         }
     }
 

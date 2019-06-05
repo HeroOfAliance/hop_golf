@@ -115,6 +115,8 @@ public class Field : Controller
 
             var codes = ColorCode.instance.GetColors(level.Num);
 
+            uiColors.UpdateColors(codes.uiColor);
+
             foreach (var item in level.Units)
             {
                 var block = Instantiate(_fieldBlock);
