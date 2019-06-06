@@ -272,6 +272,7 @@ public class PlayerController : Controller
         var gameplayUi = panelsManager.Get<GameplayUI>();
         gameController.NextLevel();
         routiner.CallLater(gameplayUi.LaunchConfetti,0.2f);
+        TutorHand.Hide();
 
         gameplayUi.Close(() => 
         {

@@ -115,11 +115,17 @@ public class Field : Controller
 
             FieldBlock start = null;
 
+            int? tutorLevel =  null;
+            if (level.Num == 1 || level.Num == 2)
+            {
+                tutorLevel = level.Num;
+            }
+
             foreach (var item in level.Units)
             {
                 var block = Instantiate(_fieldBlock);
                 block.transform.SetParent(_fieldRoot);
-                block.SetStartNode(false);
+                block.SetStartNode(false, tutorLevel);
                 block.transform.localPosition = new Vector3(_nodeSize * item.X, 0, _nodeSize * item.Y) + offset;
                 block.gameObject.SetActive(true);
                 block.SetUnit(item);
@@ -130,7 +136,7 @@ public class Field : Controller
                     start = block;
                 }
 
-                block.SetStartNode(false);
+                block.SetStartNode(false, tutorLevel);
                 _spawnedBlock.Add(block);
             }
 
@@ -139,13 +145,13 @@ public class Field : Controller
                 _openTween = _fieldRoot.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuint).OnComplete(() =>
                 {
                     callback?.Invoke();
-                    start?.SetStartNode(true);
+                    start?.SetStartNode(true, tutorLevel);
                 });
             }
             else
             {
                 callback?.Invoke();
-                start?.SetStartNode(true);
+                start?.SetStartNode(true, tutorLevel);
             }
 
         }, soft);

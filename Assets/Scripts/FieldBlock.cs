@@ -24,7 +24,8 @@ public class FieldBlock : MonoBehaviour
     private MeshRenderer _ground;
     [SerializeField]
     private MeshRenderer _hole;
-
+    [SerializeField]
+    private TutorHand _tutorHand;
 
     public LevelData.FiledUnit unit { get; private set; }
     public FieldBlockType type { get; private set; }
@@ -68,13 +69,18 @@ public class FieldBlock : MonoBehaviour
     }
 
 
-    public void SetStartNode(bool startNode)
+    public void SetStartNode(bool startNode, int ? tutor)
     {
         if (startNode)
         {
             SetType(FieldBlockType.Empty);
         }
         _player.SetActive(startNode);
+
+        if (startNode && tutor.HasValue)
+        {
+            _tutorHand.Init(tutor.Value);
+        }
     }
 
     internal void SetColors(ColorCode.ColorPair codes)
