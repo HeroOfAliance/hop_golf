@@ -18,8 +18,6 @@ public class PlayerController : Controller
     }
 
     [SerializeField]
-    private GameObject _winParticle;
-    [SerializeField]
     private MeshRenderer _renderer;
     private Vector3 _swipeStart;
     private Vector2Int _pos;

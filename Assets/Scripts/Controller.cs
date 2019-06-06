@@ -56,6 +56,16 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private static Analytics _analytics;
+    public static Analytics analytics
+    {
+        get
+        {
+            if (!_analytics) { _analytics = GetController<Analytics>(); }
+            return _analytics;
+        }
+    }
+
     private static Routiner _routiner;
     public static Routiner routiner
     {

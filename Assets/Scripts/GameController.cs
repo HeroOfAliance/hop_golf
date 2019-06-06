@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameController : Controller
 {
-
     public int lastPassedLevel
     {
         get
@@ -29,6 +28,8 @@ public class GameController : Controller
 
     private void Start()
     {
+        GameAnalyticsSDK.GameAnalytics.Initialize();
+
         StartLevel(lastPassedLevel + 1, true);
         PlayerController.active = true;
         Social.localUser.Authenticate((result) => { });
@@ -36,6 +37,7 @@ public class GameController : Controller
 
     public void StartLevel(int level, bool soft)
     {
+        analytics.StartLevel(level);
         _level = level;
 
         var levelAsset = Resources.Load<TextAsset>($"Levels/{level}");
@@ -53,6 +55,7 @@ public class GameController : Controller
 
     public void NextLevel()
     {
+        analytics.FinishLevel(_level);
         if (Social.localUser.authenticated)
         {
             Social.ReportScore(_level, "Progress", (onsuccess) => { });
